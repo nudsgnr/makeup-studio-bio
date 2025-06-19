@@ -1,0 +1,153 @@
+import React, { useState } from 'react';
+
+export const Component = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  // Images for the infinite scroll - using local images
+  const images = [
+    "/images/01.jpg",
+    "/images/02.jpg",
+    "/images/03.jpg",
+    "/images/04.jpg",
+    "/images/05.jpg",
+    "/images/06.jpg",
+    "/images/07.jpg",
+    "/images/08.jpg",
+    "/images/09.mov"
+  ];
+
+  // Duplicate images for seamless loop
+  const duplicatedImages = [...images, ...images];
+
+  return (
+    <>
+      <style>{`
+        html, body {
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .infinite-scroll {
+          animation: scroll-right 36s linear infinite;
+        }
+
+        .scroll-container {
+          mask: linear-gradient(
+            90deg,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%
+          );
+          -webkit-mask: linear-gradient(
+            90deg,
+            transparent 0%,
+            black 12%,
+            black 88%,
+            transparent 100%
+          );
+        }
+
+        .image-item {
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .image-item:hover {
+          transform: scale(1.05);
+          filter: brightness(1.1);
+        }
+      `}</style>
+      
+      <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
+        {/* Scrolling images container */}
+        <div className="relative z-10 w-full h-full flex items-center justify-center py-2">
+                      <div className="scroll-container w-full h-full">
+              <div className="infinite-scroll flex gap-4 w-max h-full">
+                {duplicatedImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="image-item flex-shrink-0 h-full aspect-[3/4] rounded-xl overflow-hidden shadow-lg cursor-pointer"
+                    onClick={() => setSelectedImage(image)}
+                  >
+                  {image.endsWith('.mov') ? (
+                    <video
+                      src={image}
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={image}
+                      alt={`Gallery image ${(index % images.length) + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Modal Overlay */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 backdrop-blur-lg bg-white bg-opacity-20 backdrop-saturate-150 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full h-full flex flex-col items-center justify-center">
+            {/* Image or Video with Close button */}
+            <div 
+              className="w-full flex-1 flex flex-col items-center justify-center p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {selectedImage.endsWith('.mov') ? (
+                <video
+                  src={selectedImage}
+                  className="max-w-full max-h-full object-contain rounded-lg mb-2"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                />
+              ) : (
+                <img
+                  src={selectedImage}
+                  alt="Preview"
+                  className="max-w-full max-h-full object-contain rounded-lg mb-2"
+                />
+              )}
+              
+              {/* Close button right beneath image */}
+              <button
+                className="bg-transparent border-2 border-black text-black px-4 py-2 rounded-full font-medium hover:bg-black hover:text-white transition-all w-full max-w-sm mt-4"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage(null);
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
