@@ -4,7 +4,7 @@ import React from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Component } from './image-auto-slider'
-import { Waves } from '@/components/ui/wave-background'
+
 import { Calendar, Instagram, HelpCircle, MessageCircle, Phone, Mail } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogFooter, DialogClose } from '@/components/ui/dialog'
 
@@ -12,13 +12,15 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 
 export function MakeupStudioBio() {
   return (
-    <div className="h-[100dvh] w-full relative p-1 flex items-center justify-center overflow-hidden bg-black">
-      <Waves 
-        className="absolute inset-0"
-        strokeColor="rgba(255, 255, 255, 0.05)"
-        backgroundColor="#000000"
-        pointerSize={0.3}
-      />
+    <div 
+      className="h-[100dvh] w-full relative p-1 flex items-center justify-center overflow-hidden bg-black"
+      style={{
+        backgroundImage: 'url(/images/bg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
               <Card className="w-full max-w-sm h-[calc(100dvh-32px)] max-h-[calc(100dvh-80px)] my-4 makeup-studio-card-small makeup-studio-card-tiny backdrop-blur-lg bg-white/95 border-0 shadow-2xl rounded-[min(6vw,24px)] animate-in slide-in-from-bottom-4 duration-700 flex flex-col overflow-hidden">
           <div className="px-3 py-1 h-full flex flex-col">
           {/* Logo Section */}
