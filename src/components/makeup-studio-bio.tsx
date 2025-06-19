@@ -19,34 +19,33 @@ export function MakeupStudioBio() {
         backgroundColor="#000000"
         pointerSize={0.3}
       />
-              <Card className="w-full max-w-sm h-[calc(100dvh-8px)] max-h-[calc(100dvh-8px)] makeup-studio-card-small makeup-studio-card-tiny backdrop-blur-lg bg-white/95 border-0 shadow-2xl rounded-[min(6vw,24px)] animate-in slide-in-from-bottom-4 duration-700 flex flex-col overflow-hidden">
+              <Card className="w-full max-w-sm h-[calc(100dvh-32px)] max-h-[calc(100dvh-80px)] my-4 makeup-studio-card-small makeup-studio-card-tiny backdrop-blur-lg bg-white/95 border-0 shadow-2xl rounded-[min(6vw,24px)] animate-in slide-in-from-bottom-4 duration-700 flex flex-col overflow-hidden">
           <div className="px-3 py-1 h-full flex flex-col">
-          {/* Header Section with Logo */}
-          <div className="flex items-center justify-center flex-shrink-0 mb-2 gap-2">
-            {/* Logo */}
+          {/* Logo Section */}
+          <div className="flex justify-center flex-shrink-0 mb-3">
             <img 
               src="logo-adunni.png"
               alt="Adunni Logo"
-              className="w-16 h-16 flex-shrink-0"
+              className="w-24 h-24"
             />
-            
-            {/* Title and Subtitle */}
-            <div className="text-left flex-1 min-w-0">
-              <h1 className="text-lg font-bold text-black leading-tight mb-1" style={{ fontFamily: 'Gloock, serif' }}>
-                Adunni&apos;s Makeup Studio! 💋
+          </div>
+
+          {/* Header Section */}
+          <div className="text-center flex-shrink-0 mb-2">
+                          <h1 className="text-lg font-bold text-black leading-tight mb-2 font-gloock">
+                Adunni&apos;s Makeup Studio!
               </h1>
-              <div className="inline-block bg-rose-100/60 px-2 py-1 rounded-full border-2 border-rose-200">
-                <p className="text-rose-500/90 text-xs leading-tight font-medium">
-                  Professional Makeup Artist in Lagos
-                </p>
-              </div>
+            <div className="inline-block bg-rose-100/60 px-2 py-1 rounded-full border-2 border-rose-200">
+              <p className="text-rose-500/90 text-xs leading-tight font-medium">
+                Professional Makeup Artist in <b></b>Lagos
+              </p>
             </div>
           </div>
 
           {/* Description Section */}
-          <div className="text-center flex-shrink-0 mb-2">
-            <p className="text-gray-500 text-xs font-medium leading-tight">
-              Glam for every occasion • Simple Beauty, Major Impact. <br />Let&apos;s make your face the canvas!
+          <div className="text-center flex-shrink-0 mb-2.5">
+            <p className="text-gray-500 text-sm font-medium leading-">
+              Glam for every occasion. <br /> Simple Beauty, Major Impact. <br />Let&apos;s make your face the canvas!
             </p>
           </div>
 

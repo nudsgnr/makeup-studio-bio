@@ -197,7 +197,18 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    touch-action: none;
     @apply bg-background text-foreground;
+  }
+  
+  /* Allow touch interactions for carousel */
+  .carousel-container {
+    touch-action: pan-x !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .font-gloock {
+    font-family: var(--font-gloock), serif;
   }
 }
 

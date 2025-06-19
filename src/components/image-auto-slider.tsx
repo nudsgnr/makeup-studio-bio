@@ -1,7 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export const Component = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Handle touch interactions
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
+    e.stopPropagation();
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    setIsPaused(false);
+    e.stopPropagation();
+  };
   // Images for the infinite scroll - using local images
   const images = [
     "/images/01.jpg",
@@ -40,6 +54,15 @@ export const Component = () => {
         .infinite-scroll {
           animation: scroll-right 36s linear infinite;
         }
+        
+        .infinite-scroll.paused {
+          animation-play-state: paused;
+        }
+        
+        .carousel-container {
+          touch-action: pan-x;
+          -webkit-overflow-scrolling: touch;
+        }
 
         .scroll-container {
           mask: linear-gradient(
@@ -71,13 +94,24 @@ export const Component = () => {
       <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
         {/* Scrolling images container */}
         <div className="relative z-10 w-full h-full flex items-center justify-center py-2">
-                      <div className="scroll-container w-full h-full">
-              <div className="infinite-scroll flex gap-4 w-max h-full">
+          <div 
+            ref={containerRef}
+            className="scroll-container w-full h-full carousel-container overflow-x-auto overflow-y-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div 
+              ref={scrollRef}
+              className={`infinite-scroll flex gap-4 w-max h-full ${isPaused ? 'paused' : ''}`}
+            >
                 {duplicatedImages.map((image, index) => (
                   <div
                     key={index}
                     className="image-item flex-shrink-0 h-full aspect-[3/4] rounded-xl overflow-hidden shadow-lg cursor-pointer"
-                    onClick={() => setSelectedImage(image)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedImage(image);
+                    }}
                   >
                   {image.endsWith('.mov') ? (
                     <video

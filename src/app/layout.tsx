@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { Figtree, Gloock } from "next/font/google";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -7,6 +7,13 @@ const figtree = Figtree({
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
+});
+
+const gloock = Gloock({
+  weight: ['400'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-gloock',
 });
 
 export const metadata: Metadata = {
@@ -21,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${figtree.className} antialiased`} suppressHydrationWarning>
+      <body className={`${figtree.className} ${gloock.variable} antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>
