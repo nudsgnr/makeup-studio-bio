@@ -5,17 +5,10 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Component } from './image-auto-slider'
 import { Waves } from '@/components/ui/wave-background'
-import { Calendar, Instagram, Camera, Palette, HelpCircle, MessageCircle, Phone, Mail } from 'lucide-react'
+import { Calendar, Instagram, HelpCircle, MessageCircle, Phone, Mail } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogFooter, DialogClose } from '@/components/ui/dialog'
 
-const makeupImages = [
-  "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-  "https://images.unsplash.com/photo-1583001931096-959e9a1a6223?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-]
+
 
 export function MakeupStudioBio() {
   return (
@@ -40,7 +33,7 @@ export function MakeupStudioBio() {
           {/* Header Section */}
           <div className="text-center flex-shrink-0 mb-[min(4vh,20px)]">
             <h1 className="text-[min(6vw,20px)] font-bold text-black leading-tight mb-[min(1vh,4px)]" style={{ fontFamily: 'Gloock, serif' }}>
-              Adunni's Makeup Studio! 💋
+              Adunni&apos;s Makeup Studio! 💋
             </h1>
             <div className="inline-block bg-rose-100/60 px-3 py-1 rounded-full m-2 border-2 border-rose-200">
               <p className="text-rose-500/90 text-[min(3.5vw,12px)] leading-relaxed font-medium">
@@ -48,7 +41,7 @@ export function MakeupStudioBio() {
               </p>
             </div>
             <p className="text-gray-500 text-[min(3.5vw,13px)] font-medium leading-relaxed">
-              Glam for every occasion • Simple Beauty, Major Impact. <br />Let's make your face the canvas!
+              Glam for every occasion • Simple Beauty, Major Impact. <br />Let&apos;s make your face the canvas!
             </p>
                       </div>
 
@@ -75,7 +68,7 @@ export function MakeupStudioBio() {
                 <DialogHeader className="text-left">
                   <DialogTitle>Book An Appointment</DialogTitle>
                   <DialogDescription>
-                    Choose how you'd like to get in touch with me.
+                    Choose how you&apos;d like to get in touch with me.
                   </DialogDescription>
                 </DialogHeader>
                 <div className="space-y-3">
@@ -144,7 +137,7 @@ export function MakeupStudioBio() {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Booking Appointments</h4>
-                    <p className="text-sm text-gray-600">To book an appointment, please tap the "Book an Appointment" button to send a message. You will be respond within 10 minutes!</p>
+                    <p className="text-sm text-gray-600">To book an appointment, please tap the &quot;Book an Appointment&quot; button to send a message. You will be respond within 10 minutes!</p>
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">Prices</h4>
