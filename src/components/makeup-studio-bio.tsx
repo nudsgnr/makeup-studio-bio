@@ -12,48 +12,51 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 
 export function MakeupStudioBio() {
   return (
-    <div className="h-screen h-[100dvh] relative p-[min(4vw,16px)] flex items-center justify-center overflow-hidden">
+    <div className="h-screen h-[100dvh] relative p-2 flex items-center justify-center overflow-hidden bg-black">
       <Waves 
         className="absolute inset-0"
         strokeColor="rgba(255, 255, 255, 0.05)"
         backgroundColor="#000000"
         pointerSize={0.3}
       />
-              <Card className="w-full max-w-sm h-[90vh] max-h-[90vh] makeup-studio-card-small makeup-studio-card-tiny backdrop-blur-lg bg-white/95 border-0 shadow-2xl rounded-[min(6vw,24px)] animate-in slide-in-from-bottom-4 duration-700 flex flex-col overflow-hidden">
-          <div className="px-[min(6vw,20px)] py-[min(1vh,8px)] h-full flex flex-col">
-          {/* Logo Section */}
-          <div className="flex justify-center flex-shrink-0 mb-[min(3vh,16px)]">
+              <Card className="w-full max-w-sm h-[calc(100dvh-16px)] max-h-[calc(100dvh-16px)] makeup-studio-card-small makeup-studio-card-tiny backdrop-blur-lg bg-white/95 border-0 shadow-2xl rounded-[min(6vw,24px)] animate-in slide-in-from-bottom-4 duration-700 flex flex-col overflow-hidden">
+          <div className="px-[min(6vw,20px)] py-2 h-full flex flex-col">
+          {/* Header Section with Logo */}
+          <div className="flex items-center justify-center flex-shrink-0 mb-3 gap-3">
+            {/* Logo */}
             <img 
               src="logo-adunni.png"
               alt="Adunni Logo"
-              className="w-[100px] h-[100px]"
+              className="w-[80px] h-[80px] flex-shrink-0"
             />
+            
+            {/* Title and Subtitle */}
+            <div className="text-left flex-1 min-w-0">
+              <h1 className="text-[min(5vw,18px)] font-bold text-black leading-tight mb-1" style={{ fontFamily: 'Gloock, serif' }}>
+                Adunni&apos;s Makeup Studio! 💋
+              </h1>
+              <div className="inline-block bg-rose-100/60 px-2 py-1 rounded-full border-2 border-rose-200">
+                <p className="text-rose-500/90 text-[min(3vw,11px)] leading-relaxed font-medium">
+                  Professional Makeup Artist in Lagos
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Header Section */}
-          <div className="text-center flex-shrink-0 mb-[min(4vh,20px)]">
-            <h1 className="text-[min(6vw,20px)] font-bold text-black leading-tight mb-[min(1vh,4px)]" style={{ fontFamily: 'Gloock, serif' }}>
-              Adunni&apos;s Makeup Studio! 💋
-            </h1>
-            <div className="inline-block bg-rose-100/60 px-3 py-1 rounded-full m-2 border-2 border-rose-200">
-              <p className="text-rose-500/90 text-[min(3.5vw,12px)] leading-relaxed font-medium">
-                Professional Makeup Artist in Lagos
-              </p>
-            </div>
+          {/* Description Section */}
+          <div className="text-center flex-shrink-0 mb-3">
             <p className="text-gray-500 text-[min(3.5vw,13px)] font-medium leading-relaxed">
               Glam for every occasion • Simple Beauty, Major Impact. <br />Let&apos;s make your face the canvas!
             </p>
-                      </div>
-
-         
+          </div>
 
           {/* Image Auto Slider */}
-          <div className="flex-1 min-h-0 mb-[min(3vh,16px)]">
+          <div className="flex-1 min-h-0 mb-3">
             <Component />
           </div>
 
           {/* Action Buttons */}
-          <div className="flex-shrink-0 space-y-[min(2vh,10px)] mb-[min(2vh,12px)]">
+          <div className="flex-shrink-0 space-y-2 mb-2">
             <Dialog>
               <DialogTrigger asChild>
                 <Button 
@@ -182,7 +185,7 @@ export function MakeupStudioBio() {
           </div>
 
           {/* Footer */}
-          <div className="text-center border-t border-gray-100 pt-[min(2vh,8px)] flex-shrink-0">
+          <div className="text-center border-t border-gray-100 pt-2 flex-shrink-0">
             <p className="text-[min(3vw,12px)] text-gray-500 font-medium">
               Can&apos;t wait for you to sit in my chair!💗
             </p>
