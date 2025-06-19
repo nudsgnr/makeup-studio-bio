@@ -23,11 +23,17 @@ export function MakeupStudioBio() {
           <div className="px-3 py-1 h-full flex flex-col">
           {/* Logo Section */}
           <div className="flex justify-center flex-shrink-0 mb-3">
-            <img 
-              src="logo-adunni.png"
-              alt="Adunni Logo"
-              className="w-24 h-24"
-            />
+            <div className="relative">
+              <img 
+                src="logo-adunni.png"
+                alt="Adunni Logo"
+                className="w-24 h-24"
+              />
+              {/* Online Status Indicator */}
+              <div className="absolute top-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-lg">
+                <div className="w-full h-full bg-green-400 rounded-full animate-pulse"></div>
+              </div>
+            </div>
           </div>
 
           {/* Header Section */}
