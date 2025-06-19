@@ -5,6 +5,7 @@ export const Component = () => {
   const [isPaused, setIsPaused] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Handle touch interactions
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -20,8 +21,10 @@ export const Component = () => {
     // Pause animation when user is actively scrolling
     setIsPaused(true);
     // Resume after user stops scrolling
-    clearTimeout(handleScroll.timeoutId);
-    handleScroll.timeoutId = setTimeout(() => setIsPaused(false), 1000);
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = setTimeout(() => setIsPaused(false), 1000);
   };
   // Images for the infinite scroll - using local images
   const images = [
