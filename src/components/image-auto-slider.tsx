@@ -29,8 +29,8 @@ export const Component = () => {
     "/images/09.mov"
   ];
 
-  // Duplicate images for seamless loop
-  const duplicatedImages = [...images, ...images];
+  // Duplicate images for seamless infinite loop
+  const duplicatedImages = [...images, ...images, ...images];
 
   return (
     <>
@@ -47,12 +47,12 @@ export const Component = () => {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(-50%);
+            transform: translateX(-33.333%);
           }
         }
 
         .infinite-scroll {
-          animation: scroll-right 36s linear infinite;
+          animation: scroll-right 54s linear infinite;
         }
         
         .infinite-scroll.paused {
@@ -60,8 +60,7 @@ export const Component = () => {
         }
         
         .carousel-container {
-          touch-action: pan-x;
-          -webkit-overflow-scrolling: touch;
+          touch-action: manipulation;
         }
 
         .scroll-container {
@@ -96,7 +95,7 @@ export const Component = () => {
         <div className="relative z-10 w-full h-full flex items-center justify-center py-2">
           <div 
             ref={containerRef}
-            className="scroll-container w-full h-full carousel-container overflow-x-auto overflow-y-hidden"
+            className="scroll-container w-full h-full carousel-container"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
