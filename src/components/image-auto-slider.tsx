@@ -9,12 +9,19 @@ export const Component = () => {
   // Handle touch interactions
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsPaused(true);
-    e.stopPropagation();
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    setIsPaused(false);
-    e.stopPropagation();
+    // Resume animation after a short delay to allow for smooth transition
+    setTimeout(() => setIsPaused(false), 100);
+  };
+
+  const handleScroll = () => {
+    // Pause animation when user is actively scrolling
+    setIsPaused(true);
+    // Resume after user stops scrolling
+    clearTimeout(handleScroll.timeoutId);
+    handleScroll.timeoutId = setTimeout(() => setIsPaused(false), 1000);
   };
   // Images for the infinite scroll - using local images
   const images = [
@@ -60,7 +67,8 @@ export const Component = () => {
         }
         
         .carousel-container {
-          touch-action: manipulation;
+          touch-action: pan-x;
+          -webkit-overflow-scrolling: touch;
         }
 
         .scroll-container {
@@ -95,9 +103,10 @@ export const Component = () => {
         <div className="relative z-10 w-full h-full flex items-center justify-center py-2">
           <div 
             ref={containerRef}
-            className="scroll-container w-full h-full carousel-container"
+            className="scroll-container w-full h-full carousel-container overflow-x-auto overflow-y-hidden"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
+            onScroll={handleScroll}
           >
             <div 
               ref={scrollRef}
