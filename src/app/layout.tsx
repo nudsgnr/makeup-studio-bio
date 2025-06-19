@@ -17,8 +17,8 @@ const gloock = Gloock({
 });
 
 export const metadata: Metadata = {
-  title: "Bella Makeup Studio | Link in Bio",
-  description: "Professional makeup artistry services. Book your appointment today!",
+  title: "Faces By Adunni | Makeup Artist Studio",
+  description: "Professional makeup artistry services in Lagos. Book your appointment today!",
 };
 
 export default function RootLayout({
